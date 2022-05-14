@@ -9,13 +9,21 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
-import AdbIcon from "@mui/icons-material/Adb";
+import ArrowDropDownOutlinedIcon from "@mui/icons-material/ArrowDropDownOutlined";
 import { useNavigate } from "react-router-dom";
 
-const pages = ["My Work", "View Prices", "Contact Us"];
+const pages = ["View Prices", "Contact Us"];
 
 const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
   const Navigate = useNavigate();
 
   const handleOpenNavMenu = (event) => {
@@ -25,33 +33,15 @@ const ResponsiveAppBar = () => {
   const handleCloseNavMenu = (e) => {
     let selected = e.target.innerText;
     selected = selected.split(" ").join("").toLowerCase();
-    Navigate('/'+selected);
+    Navigate("/" + selected);
     setAnchorElNav(null);
+    setAnchorEl(null);
   };
 
   return (
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="/"
-            sx={{
-              mr: 2,
-              display: { xs: "none", md: "flex" },
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "inherit",
-              textDecoration: "none",
-            }}
-          >
-            LOGO
-          </Typography>
-
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
@@ -81,6 +71,15 @@ const ResponsiveAppBar = () => {
                 display: { xs: "block", md: "none" },
               }}
             >
+              <MenuItem
+                id="basic-button"
+                aria-controls={open ? "basic-menu" : undefined}
+                aria-haspopup="true"
+                aria-expanded={open ? "true" : undefined}
+                onClick={handleClick}
+              >
+                My Work
+              </MenuItem>
               {pages.map((page) => (
                 <MenuItem
                   key={page}
@@ -93,25 +92,50 @@ const ResponsiveAppBar = () => {
               ))}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
-          <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            href=""
-            sx={{
-              mr: 2,
-              display: { xs: "flex", md: "none" },
-              flexGrow: 1,
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "inherit",
-              textDecoration: "none",
+
+          <Box sx={{ display: { xs: "none", md: "flex" } }}>
+            <Button
+              sx={{ my: 2, color: "white", display: "block" }}
+              id="basic-button"
+              aria-controls={open ? "basic-menu" : undefined}
+              aria-haspopup="true"
+              aria-expanded={open ? "true" : undefined}
+              onClick={handleClick}
+            >
+              My Work
+            </Button>
+          </Box>
+          <Menu
+            id="basic-menu"
+            anchorEl={anchorEl}
+            open={open}
+            onClose={handleClose}
+            MenuListProps={{
+              "aria-labelledby": "basic-button",
             }}
           >
-            LOGO
-          </Typography>
+            <MenuItem
+              onClick={(e) => {
+                handleCloseNavMenu(e);
+              }}
+            >
+              Wedding
+            </MenuItem>
+            <MenuItem
+              onClick={(e) => {
+                handleCloseNavMenu(e);
+              }}
+            >
+              Haldi
+            </MenuItem>
+            <MenuItem
+              onClick={(e) => {
+                handleCloseNavMenu(e);
+              }}
+            >
+              Reception
+            </MenuItem>
+          </Menu>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
               <Button
