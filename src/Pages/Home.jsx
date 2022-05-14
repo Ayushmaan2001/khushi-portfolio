@@ -97,7 +97,7 @@ export default function Home() {
                   <Box
                     component="img"
                     sx={{
-                      height: 700,
+                      height: 600,
                       display: "block",
                       maxWidth: 700,
                       overflow: "hidden",
