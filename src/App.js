@@ -2,7 +2,6 @@ import "./App.css";
 import ResponsiveAppBar from "./Components/Navbar";
 import { Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home";
-import ViewPrices from "./Pages/ViewPrices";
 import ContactUs from "./Pages/ContactUs";
 import Reception from "./Pages/Reception";
 import Haldi from "./Pages/Haldi";
@@ -15,7 +14,6 @@ function App() {
       <Routes>
         <Route element={<Home />} exact path="/" />
         <Route element={<ContactUs />} path="/contactus" />
-        <Route element={<ViewPrices />} path="/viewprices" />
         <Route element={<Reception />} path="/reception" />
         <Route element={<Haldi />} path="/haldi" />
         <Route element={<Wedding />} path="/wedding" />

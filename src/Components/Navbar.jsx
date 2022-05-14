@@ -13,7 +13,7 @@ import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import "../CSS/AppBar.css";
 import { useNavigate } from "react-router-dom";
 
-const pages = ["View Prices", "Contact Us"];
+const pages = [ "Contact Us"];
 
 const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
