@@ -9,7 +9,6 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
-import ArrowDropDownOutlinedIcon from "@mui/icons-material/ArrowDropDownOutlined";
 import { useNavigate } from "react-router-dom";
 
 const pages = ["View Prices", "Contact Us"];
@@ -17,6 +16,7 @@ const pages = ["View Prices", "Contact Us"];
 const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const Navigate = useNavigate();
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -24,7 +24,9 @@ const ResponsiveAppBar = () => {
   const handleClose = () => {
     setAnchorEl(null);
   };
-  const Navigate = useNavigate();
+  const Home = () => {
+    Navigate("/");
+  };
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -92,7 +94,14 @@ const ResponsiveAppBar = () => {
               ))}
             </Menu>
           </Box>
-
+          <Box sx={{ display: { xs: "none", md: "flex" } }}>
+            <Button
+              onClick={Home}
+              sx={{ my: 2, color: "white", display: "block" }}
+            >
+              Home
+            </Button>
+          </Box>
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
             <Button
               sx={{ my: 2, color: "white", display: "block" }}
