@@ -136,21 +136,21 @@ const ResponsiveAppBar = () => {
                 handleCloseNavMenu(e);
               }}
             >
+              Commercial Shoots
+            </MenuItem>
+            <MenuItem
+              onClick={(e) => {
+                handleCloseNavMenu(e);
+              }}
+            >
+              Creative Makeup
+            </MenuItem>
+            <MenuItem
+              onClick={(e) => {
+                handleCloseNavMenu(e);
+              }}
+            >
               Wedding
-            </MenuItem>
-            <MenuItem
-              onClick={(e) => {
-                handleCloseNavMenu(e);
-              }}
-            >
-              Haldi
-            </MenuItem>
-            <MenuItem
-              onClick={(e) => {
-                handleCloseNavMenu(e);
-              }}
-            >
-              Reception
             </MenuItem>
           </Menu>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
