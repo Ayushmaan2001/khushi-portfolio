@@ -1,12 +1,6 @@
 import * as React from "react";
 import { useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
-import MobileStepper from "@mui/material/MobileStepper";
-import Paper from "@mui/material/Paper";
-import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
-import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
-import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 import SwipeableViews from "react-swipeable-views";
 import { autoPlay } from "react-swipeable-views-utils";
 import { Container } from "@mui/material";
@@ -16,35 +10,72 @@ const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 const images = [
   {
-    label: "San Francisco – Oakland Bay Bridge, United States",
+    idx: "0",
     imgPath: require("../Images/069A46671643469002486.jpg"),
   },
   {
-    label: "Bird",
+    idx: "1",
     imgPath: require("../Images/069A46761643469002487.jpg"),
   },
   {
-    label: "Bali, Indonesia",
+    idx: "2",
     imgPath: require("../Images/069A46781643469002487.jpg"),
   },
   {
-    label: "Goč, Serbia",
+    idx: "3",
     imgPath: require("../Images/069A46871643469002488.jpg"),
+  },
+  {
+    idx: "4",
+    imgPath: require("../Images/069A48931643469002518.jpg"),
+  },
+  {
+    idx: "5",
+    imgPath: require("../Images/069A49301643469002523.jpg"),
+  },
+  {
+    idx: "5",
+    imgPath: require("../Images/069A50471643469002547.jpg"),
+  },
+  {
+    idx: "6",
+    imgPath: require("../Images/069A50471643469002547.jpg"),
+  },
+];
+const slide_img = [
+  {
+    idx: "0",
+    imgPath: require("../Images/069A78381643650612766.jpg"),
+  },
+  {
+    idx: "1",
+    imgPath: require("../Images/069A77991643650612761.jpg"),
+  },
+  {
+    idx: "2",
+    imgPath: require("../Images/069A75711643650612724.jpg"),
+  },
+  {
+    idx: "3",
+    imgPath: require("../Images/069A51351643469002558.jpg"),
+  },
+  {
+    idx: "4",
+    imgPath: require("../Images/069A51141643469002555.jpg"),
+  },
+  {
+    idx: "5",
+    imgPath: require("../Images/069A50951643469002553.jpg"),
+  },
+  {
+    idx: "6",
+    imgPath: require("../Images/069A50611643469002549.jpg"),
   },
 ];
 
 export default function Home() {
   const theme = useTheme();
   const [activeStep, setActiveStep] = React.useState(0);
-  const maxSteps = images.length;
-
-  const handleNext = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
-  };
-
-  const handleBack = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep - 1);
-  };
 
   const handleStepChange = (step) => {
     setActiveStep(step);
@@ -61,7 +92,7 @@ export default function Home() {
             enableMouseEvents
           >
             {images.map((step, index) => (
-              <div key={step.label}>
+              <div key={step.idx}>
                 {Math.abs(activeStep - index) <= 2 ? (
                   <Box
                     component="img"
@@ -73,49 +104,15 @@ export default function Home() {
                       width: "100%",
                     }}
                     src={step.imgPath}
-                    alt={step.label}
+                    alt={step.idx}
                   />
                 ) : null}
               </div>
             ))}
           </AutoPlaySwipeableViews>
-          <MobileStepper
-            variant="progress"
-            steps={maxSteps}
-            position="static"
-            activeStep={activeStep}
-            nextButton={
-              <Button
-                size="small"
-                onClick={handleNext}
-                disabled={activeStep === maxSteps - 1}
-              >
-                Next
-                {theme.direction === "rtl" ? (
-                  <KeyboardArrowLeft />
-                ) : (
-                  <KeyboardArrowRight />
-                )}
-              </Button>
-            }
-            backButton={
-              <Button
-                size="small"
-                onClick={handleBack}
-                disabled={activeStep === 0}
-              >
-                {theme.direction === "rtl" ? (
-                  <KeyboardArrowRight />
-                ) : (
-                  <KeyboardArrowLeft />
-                )}
-                Back
-              </Button>
-            }
-          />
         </Box>
       </Container>
-      {images.map((img) => {
+      {slide_img.map((img) => {
         return (
           <>
             <ImageCard images={img.imgPath} />
