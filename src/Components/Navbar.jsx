@@ -9,6 +9,8 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import "../CSS/AppBar.css";
 import { useNavigate } from "react-router-dom";
 
 const pages = ["View Prices", "Contact Us"];
@@ -41,7 +43,7 @@ const ResponsiveAppBar = () => {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" id="AppBar">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -73,6 +75,9 @@ const ResponsiveAppBar = () => {
                 display: { xs: "block", md: "none" },
               }}
             >
+              <MenuItem onClick={Home}>
+                <Typography textAlign="center">Home</Typography>
+              </MenuItem>
               <MenuItem
                 id="basic-button"
                 aria-controls={open ? "basic-menu" : undefined}
@@ -81,6 +86,9 @@ const ResponsiveAppBar = () => {
                 onClick={handleClick}
               >
                 My Work
+                <span>
+                  <ArrowDropDownIcon />
+                </span>
               </MenuItem>
               {pages.map((page) => (
                 <MenuItem
