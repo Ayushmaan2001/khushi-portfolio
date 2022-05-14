@@ -1,7 +1,30 @@
 import * as React from "react";
+import emailjs from "@emailjs/browser";
+
 import "./Contact.css";
 
 export default function ContactUs() {
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_2gcgrrh",
+        "template_g1qob8o",
+        e.target,
+        "Rytg1l1cHpbdaeXp6"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+    e.target.reset();
+  };
+
   return (
     <React.Fragment>
       <div class="container">
@@ -44,7 +67,7 @@ export default function ContactUs() {
             <span class="circle one"></span>
             <span class="circle two"></span>
 
-            <form action="index.html" autocomplete="off">
+            <form autocomplete="off" onSubmit={sendEmail}>
               <h3 class="title">Contact us</h3>
               <div class="input-container">
                 <input
