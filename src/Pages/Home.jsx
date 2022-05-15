@@ -92,7 +92,7 @@ export default function Home() {
     <React.Fragment>
       <Paper elevation={0} sx={{mt:1}}/> Commercial Shoots
       <Container maxWidth="sm">
-        <Box sx={{ maxWidth: 1000, flexGrow: 1, mt: 2 }}>
+        <Box sx={{ maxWidth: 1000, flexGrow: 1,display:'flex',m:'auto'}}>
           <AutoPlaySwipeableViews
             axis={theme.direction === "rtl" ? "x-reverse" : "x"}
             index={activeStep}
@@ -105,11 +105,12 @@ export default function Home() {
                   <Box
                     component="img"
                     sx={{
-                      height: 600,
+                      height: 500,
                       display: "block",
-                      maxWidth: 700,
+                      // maxWidth: 700,
+                      width:"%10",
                       overflow: "hidden",
-                      width: "100%",
+                      
                     }}
                     src={step.imgPath}
                     alt={step.idx}
@@ -120,16 +121,16 @@ export default function Home() {
           </AutoPlaySwipeableViews>
         </Box>
       </Container>
-      {slide_img.map((img) => {
+      {/* {slide_img.map((img) => {
         return (
           <>
             <ImageCard images={img.imgPath} />
           </>
         );
-      })}
+      })} */}
       <Button
         variant="outlined"
-        sx={{ display: "flex", m: "auto" }}
+        sx={{ display: "flex", m: "auto",mt:3 }}
         onClick={commercialmakeup}
       >
         View More
