@@ -1,9 +1,17 @@
 import * as React from "react";
 import emailjs from "@emailjs/browser";
-
 import "./Contact.css";
+import Alert from "@mui/material/Alert";
+import AlertTitle from "@mui/material/AlertTitle";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import LocationCityIcon from "@mui/icons-material/LocationCity";
+import EmailIcon from "@mui/icons-material/Email";
+import PhoneIphoneIcon from "@mui/icons-material/PhoneIphone";
 
 export default function ContactUs() {
+  let res = "";
+
   const sendEmail = (e) => {
     e.preventDefault();
 
@@ -17,6 +25,7 @@ export default function ContactUs() {
       .then(
         (result) => {
           console.log(result.text);
+          res = result.text;
         },
         (error) => {
           console.log(error.text);
@@ -27,6 +36,13 @@ export default function ContactUs() {
 
   return (
     <React.Fragment>
+      {res === "OK" && (
+        <Alert severity="success">
+          <AlertTitle>Success</AlertTitle>
+          This is a success alert — <strong>check it out!</strong>
+        </Alert>
+      )}
+
       <div class="container">
         <span class="big-circle"></span>
         <img src="img/shape.png" class="square" alt="" />
@@ -38,25 +54,30 @@ export default function ContactUs() {
             <div class="info">
               <div class="information">
                 <img src="./img/location.png" class="icon" alt="" />
+                <LocationCityIcon fontSize="large" />
                 <p>Shahadara, Delhi - 110093</p>
               </div>
               <div class="information">
                 <img src="./img/email.png" class="icon" alt="" />
+                <EmailIcon fontSize="large" />
                 <p>khushujangid12@gmail.com</p>
               </div>
               <div class="information">
                 <img src="./img/phone.png" class="icon" alt="" />
-                <p>9663846897</p>
+                <PhoneIphoneIcon fontSize="large" />
+                <p>+917011622321</p>
               </div>
             </div>
 
             <div class="social-media">
-              <p>Connect with us :</p>
-              <div class="social-icons">
+              <p>Follow us on Instagram & Facebook</p>
+              <div>
                 <a href="https://www.instagram.com/_khushijangid.mua_/">
+                  <InstagramIcon fontSize="large" />
                   <i class="fab fa-instagram"></i>
                 </a>
-                <a href="#">
+                <a href="https://www.facebook.com/profile.php?id=100065505110706">
+                  <FacebookIcon fontSize="large" />
                   <i class="fab fa-facebook-f"></i>
                 </a>
               </div>
@@ -67,14 +88,14 @@ export default function ContactUs() {
             <span class="circle one"></span>
             <span class="circle two"></span>
 
-            <form autocomplete="off" onSubmit={sendEmail}>
-              <h3 class="title">Contact us</h3>
+            <form autoComplete="on" onSubmit={sendEmail}>
+              <h3 class="title">Contact Us</h3>
               <div class="input-container">
                 <input
                   type="text"
                   name="name"
                   class="input"
-                  placeholder="Username"
+                  placeholder="Name"
                 />
               </div>
               <div class="input-container">
