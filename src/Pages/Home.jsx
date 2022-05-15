@@ -3,10 +3,13 @@ import { useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import SwipeableViews from "react-swipeable-views";
 import { autoPlay } from "react-swipeable-views-utils";
-import { Container } from "@mui/material";
+import { Container, Paper } from "@mui/material";
 import ImageCard from "../Components/ImageCard";
+import Button from "@mui/material/Button";
+import { useNavigate } from "react-router-dom";
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
+
 
 const images = [
   {
@@ -74,6 +77,10 @@ const slide_img = [
 ];
 
 export default function Home() {
+  const Navigate = useNavigate();
+  const commercialmakeup = () => {
+    Navigate("/commercialshoots");
+  };
   const theme = useTheme();
   const [activeStep, setActiveStep] = React.useState(0);
 
@@ -83,6 +90,7 @@ export default function Home() {
 
   return (
     <React.Fragment>
+      <Paper elevation={0} sx={{mt:1}}/> Commercial Shoots
       <Container maxWidth="sm">
         <Box sx={{ maxWidth: 1000, flexGrow: 1, mt: 2 }}>
           <AutoPlaySwipeableViews
@@ -119,6 +127,13 @@ export default function Home() {
           </>
         );
       })}
+      <Button
+        variant="outlined"
+        sx={{ display: "flex", m: "auto" }}
+        onClick={commercialmakeup}
+      >
+        View More
+      </Button>
     </React.Fragment>
   );
 }
