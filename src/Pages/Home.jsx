@@ -76,7 +76,7 @@ export default function Home() {
                       height: 500,
                       display: "block",
                       // maxWidth: 700,
-                      width: "400px",
+                      //width: "350px",
                       overflow: "hidden",
                     }}
                     src={step.imgPath}
