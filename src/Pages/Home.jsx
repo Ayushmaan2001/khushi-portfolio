@@ -45,36 +45,6 @@ const images = [
     imgPath: require("../Images/069A50471643469002547.jpg"),
   },
 ];
-const slide_img = [
-  {
-    idx: "0",
-    imgPath: require("../Images/069A78381643650612766.jpg"),
-  },
-  {
-    idx: "1",
-    imgPath: require("../Images/069A77991643650612761.jpg"),
-  },
-  {
-    idx: "2",
-    imgPath: require("../Images/069A75711643650612724.jpg"),
-  },
-  {
-    idx: "3",
-    imgPath: require("../Images/069A51351643469002558.jpg"),
-  },
-  {
-    idx: "4",
-    imgPath: require("../Images/069A51141643469002555.jpg"),
-  },
-  {
-    idx: "5",
-    imgPath: require("../Images/069A50951643469002553.jpg"),
-  },
-  {
-    idx: "6",
-    imgPath: require("../Images/069A50611643469002549.jpg"),
-  },
-];
 
 export default function Home() {
   const Navigate = useNavigate();
@@ -90,9 +60,8 @@ export default function Home() {
 
   return (
     <React.Fragment>
-      <Paper elevation={0} sx={{mt:1}}/> Commercial Shoots
       <Container maxWidth="sm">
-        <Box sx={{ maxWidth: 1000, flexGrow: 1,display:'flex',m:'auto'}}>
+        <Box sx={{ maxWidth: 1000,display:'flex',m:'auto'}}>
           <AutoPlaySwipeableViews
             axis={theme.direction === "rtl" ? "x-reverse" : "x"}
             index={activeStep}
