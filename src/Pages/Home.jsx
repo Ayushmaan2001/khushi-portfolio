@@ -10,7 +10,6 @@ import { useNavigate } from "react-router-dom";
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
-
 const images = [
   {
     idx: "0",
@@ -61,7 +60,7 @@ export default function Home() {
   return (
     <React.Fragment>
       <Container maxWidth="sm">
-        <Box sx={{ maxWidth: 1000,display:'flex',m:'auto'}}>
+        <Box sx={{ maxWidth: 1000, display: "flex", m: "auto" }}>
           <AutoPlaySwipeableViews
             axis={theme.direction === "rtl" ? "x-reverse" : "x"}
             index={activeStep}
@@ -77,9 +76,8 @@ export default function Home() {
                       height: 500,
                       display: "block",
                       // maxWidth: 700,
-                      width:"%10",
+                      width: "400px",
                       overflow: "hidden",
-                      
                     }}
                     src={step.imgPath}
                     alt={step.idx}
@@ -90,20 +88,6 @@ export default function Home() {
           </AutoPlaySwipeableViews>
         </Box>
       </Container>
-      {/* {slide_img.map((img) => {
-        return (
-          <>
-            <ImageCard images={img.imgPath} />
-          </>
-        );
-      })} */}
-      <Button
-        variant="outlined"
-        sx={{ display: "flex", m: "auto",mt:3 }}
-        onClick={commercialmakeup}
-      >
-        View More
-      </Button>
     </React.Fragment>
   );
 }
