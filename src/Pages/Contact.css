@@ -66,7 +66,7 @@ textarea {
   position: absolute;
   width: 26px;
   height: 26px;
-  background-color: #1abc9c;
+  background-color: purple;
   transform: rotate(45deg);
   top: 50px;
   left: -13px;
@@ -172,7 +172,7 @@ textarea.input {
   opacity: 0;
   transition: 0.3s;
   height: 5px;
-  background-color: #1abc9c;
+  background-color: purple;
   top: 50%;
   transform: translateY(-50%);
 }
@@ -232,6 +232,7 @@ textarea.input {
 
 .social-media p {
   color: #333;
+  font-size: large;
 }
 
 .social-icons {
@@ -240,8 +241,8 @@ textarea.input {
 }
 
 .social-icons a {
-  width: 35px;
-  height: 35px;
+  width: 50px;
+  height: 50px;
   border-radius: 5px;
   background: linear-gradient(45deg, #1abc9c, #149279);
   color: #fff;
