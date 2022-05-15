@@ -6,11 +6,11 @@ export default function ImageCard({ images }) {
   return (
     <Card
       sx={{
-        maxWidth: 345,
+        maxWidth: 300,
         mr: 1,
         ml: 1,
-        mb: 2,
-        mt: 2,
+        mb: 1,
+        mt: 1,
         display: {
           xl: "inline-block",
           lg: "inline-block",
