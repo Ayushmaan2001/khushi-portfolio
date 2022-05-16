@@ -7,9 +7,7 @@ export default function ImageCard({ images }) {
     <Card
       sx={{
         maxWidth: 300,
-        mr: 1,
-        ml: 1,
-        mb: 1,
+        ml: 1.3,
         mt: 1,
         display: {
           xl: "inline-block",
