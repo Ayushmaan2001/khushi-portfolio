@@ -73,10 +73,8 @@ export default function Home() {
                   <Box
                     component="img"
                     sx={{
-                      height: 500,
+                      height: 650,
                       display: "block",
-                      // maxWidth: 700,
-                      width: "400px",
                       overflow: "hidden",
                     }}
                     src={step.imgPath}
