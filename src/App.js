@@ -8,6 +8,26 @@ import CommercialShoots from "./Pages/CommercialShoots";
 import Wedding from "./Pages/Wedding";
 
 function App() {
+  // const commercial_shoots = [];
+  // const Home_images = async () => {
+  //   const app_ref = ref(storage, "Home/");
+  //   await listAll(app_ref)
+  //     .then((res) => {
+  //       res.items.forEach((itemRef) => {
+  //         // All the items under listRef.
+  //         getDownloadURL(itemRef).then((url) => {
+  //           commercial_shoots.push({ img: url });
+  //           // console.log(url);
+  //         });
+  //       });
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //       // Uh-oh, an error occurred!
+  //     });
+  // };
+  // Home_images();
+  // console.log(commercial_shoots);
   return (
     <div className="App">
       <ResponsiveAppBar />
